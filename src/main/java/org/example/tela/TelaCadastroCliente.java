@@ -14,7 +14,7 @@ public class TelaCadastroCliente {
         final String contato = scanner.next();
 
         Cliente cliente = new Cliente(nome, cpf, contato);
-
+        int i=0;
         return cliente;
     }
 }
