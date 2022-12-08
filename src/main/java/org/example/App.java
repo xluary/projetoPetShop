@@ -10,9 +10,10 @@ public class App
 
         System.out.println( "Bem vindo ao PetShop Grupo 1!");
         Scanner scanner = new Scanner(System.in);
-        int opcao= scanner.nextInt();
+        int opcao;
         do{
-            System.out.println("Digite: \n (1) Cadastrar Cliente \n (2) Cadastrar Pet \n (2) Agendar Horário \n (3) Imprimir Agenda Diária \n (0) Sair");
+            System.out.println("Digite: \n (1) Cadastrar Cliente \n (2) Cadastrar Pet \n (3) Agendar Horário \n (4) Imprimir Agenda Diária \n (0) Sair");
+            opcao= scanner.nextInt();
             switch (opcao){
                 case 0:
                     System.out.println("Sistema encerrado!");
@@ -30,6 +31,8 @@ public class App
                     break;
                 case 4:
                     //TODO buscar na agenda os horarios marcados para o dia e imprimir na tela
+                default:
+                    System.out.println("Opção inválida!");
             }
         }while (opcao !=0);
     }
