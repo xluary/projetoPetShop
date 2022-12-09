@@ -13,7 +13,11 @@ public class TelaCadastroCliente {
         final int cpf = scanner.nextInt();
         System.out.println("Informe o contato: (ddd)99999-9999");
         final String contato = scanner.next();
-        return new Cliente(nome, cpf, contato);
+        Cliente cliente = new Cliente(nome, cpf, contato);
+        BancoCliente bancoCliente = BancoCliente.getInstance();
+        bancoCliente.addCliente(cliente);
+        System.out.println("Cliente cadastrado.");
+        return cliente;
     }
 
     public static Cliente recuperarCliente(Scanner scanner) {
