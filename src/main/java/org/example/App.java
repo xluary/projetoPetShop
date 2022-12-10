@@ -2,7 +2,9 @@ package org.example;
 
 
 import org.example.entidade.Cliente;
+import org.example.entidade.Pets;
 import org.example.tela.TelaCadastroCliente;
+import org.example.tela.TelaCadastroPets;
 
 import java.util.Scanner;
 
@@ -18,6 +20,7 @@ public class App
             System.out.println("Digite: \n (1) Cadastrar Cliente \n (2) Cadastrar Pet \n (3) Agendar Horário \n (4) Imprimir Agenda Diária \n (0) Sair");
             opcao= scanner.nextInt();
             Cliente cliente = null;
+            Pets pet = null;
             switch (opcao){
                 case 0:
                     System.out.println("Sistema encerrado!");
@@ -28,9 +31,25 @@ public class App
                     //TODO cadastra pets do cliente (usar um do while para permitir cadastrar vários pets?)
                     break;
                 case 2:
-                    // TODO atualizar cadastro de cliente (mudar dados cadastrais como contato, ou adicionar novos pets)
-                    // (remover pet) :( ?
+                    System.out.println("(1) Cadastrar Pet\n (2) Alterar Cadastro do Pet");
+                    int opcao2=scanner.nextInt();
+                    switch (opcao2) {
+                        case 1:
+                            cliente = TelaCadastroCliente.recuperarCliente(scanner);
+                            boolean proximo;
+                            do {
+                                pet = TelaCadastroPets.cadastrarPet(scanner);
+                                System.out.println("Deseja cadastrar outro Pet? (S) Sim; (N) Não");
+                                proximo = scanner.next().equalsIgnoreCase("s");
+                            } while (proximo);
+                        case 2:
+                            cliente = TelaCadastroCliente.recuperarCliente(scanner);
+
+
+
+                    }
                     break;
+                    // TODO atualizar cadastro de cliente (mudar dados cadastrais como contato, ou adicionar novos pets)
                 case 3:
                     //TODO criar agenda e adicionar item na agenda
                     break;
