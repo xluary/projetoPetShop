@@ -13,26 +13,38 @@ import java.util.stream.Collectors;
 
 public class TelaAgendamento {
 
-    public static void agendarHorario (Scanner scanner, Cliente cliente){
+    public static void agendarHorario(Scanner scanner, Cliente cliente) {
         PersistenciaAgenda agenda = PersistenciaAgenda.getInstance();
 
         System.out.println("Informe a data desejada (dd/mm/aaaa): ");
-        LocalDate dataAgendamento= LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDate dataAgendamento = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
         List<Horarios> horariosAgendadosDia = PersistenciaAgenda.horariosDia(dataAgendamento).stream().map(Agendamento::getHorario).collect(Collectors.toList());
         System.out.println("Informe o horario desejado: ");
 
-        for (Horarios horarios : Horarios.values()){
-            if(horariosAgendadosDia.contains(horarios)){
-                System.out.printf("Opção (%d) - Horário indisponível \n", horarios.getOpcao());
-            } else{
-                System.out.printf("Opção (%d) - %s \n", horarios.getOpcao(),horarios.getLabel());
+
+        int valida = 0;
+        do {
+
+            for (Horarios horarios : Horarios.values()) {
+                if (horariosAgendadosDia.contains(horarios)) {
+                    System.out.printf("Opção (%d) - Horário indisponível \n", horarios.getOpcao());
+                } else {
+                    System.out.printf("Opção (%d) - %s \n", horarios.getOpcao(), horarios.getLabel());
+                }
+
             }
+            Horarios opcao = Horarios.fromOpcao(scanner.nextInt());
 
-        }
-        Horarios horarios = Horarios.fromOpcao(scanner.nextInt());
 
-        Agendamento agendamento = new Agendamento(cliente, dataAgendamento, horarios);
-        agenda.addHorario(agendamento);
+            if (horariosAgendadosDia.contains(opcao)) {
+                System.out.println("Horário indisponível, por favor selecione outro horário");
+            } else {
+                Agendamento agendamento = new Agendamento(cliente, dataAgendamento, opcao);
+                agenda.addHorario(agendamento);
+                System.out.println("Agendamento realizado!");
+                valida = 1;
+            }
+        } while (valida == 0);
     }
 }

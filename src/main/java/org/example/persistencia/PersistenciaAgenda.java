@@ -35,9 +35,14 @@ public class PersistenciaAgenda {
 
     public static void imprimirAgendamentoDiario(LocalDate data){
         List<Agendamento> tempAgenda = horariosDia(data);
-        for(Agendamento compromisso : tempAgenda){
-            System.out.printf("Cliente: %s \t Horário: %s \n",compromisso.getCliente().getNome(), compromisso.getHorario().getLabel());
+        if(tempAgenda.isEmpty()){
+            System.out.println("Não há horários agendados o dia " + data);
+        } else {
+            for(Agendamento compromisso : tempAgenda){
+                System.out.printf("Cliente: %s \t Horário: %s \n",compromisso.getCliente().getNome(), compromisso.getHorario().getLabel());
+            }
         }
+
     }
 
     public static List<Agendamento> horariosDia(LocalDate data){
