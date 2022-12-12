@@ -32,19 +32,26 @@ public class TelaAgendamento {
                 } else {
                     System.out.printf("Opção (%d) - %s \n", horarios.getOpcao(), horarios.getLabel());
                 }
-
             }
-            Horarios opcao = Horarios.fromOpcao(scanner.nextInt());
 
-
-            if (horariosAgendadosDia.contains(opcao)) {
-                System.out.println("Horário indisponível, por favor selecione outro horário");
-            } else {
-                Agendamento agendamento = new Agendamento(cliente, dataAgendamento, opcao);
-                agenda.addHorario(agendamento);
-                System.out.println("Agendamento realizado!");
+            if(horariosAgendadosDia.size() == Horarios.quantidadeHorarios){
+                System.out.printf("Todos os horários para o dia %s estão preenchidos, selecione outra data", dataAgendamento);
                 valida = 1;
+            } else {
+                Horarios opcao = Horarios.fromOpcao(scanner.nextInt());
+
+                if (horariosAgendadosDia.contains(opcao)) {
+                    System.out.println("Horário indisponível, por favor selecione outro horário");
+                } else {
+                    Agendamento agendamento = new Agendamento(cliente, dataAgendamento, opcao);
+                    agenda.addHorario(agendamento);
+                    System.out.println("Agendamento realizado!");
+                    valida = 1;
+                }
             }
+
+
+
         } while (valida == 0);
     }
 }

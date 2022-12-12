@@ -4,6 +4,7 @@ import org.example.entidade.Agendamento;
 import org.example.entidade.Cliente;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -36,7 +37,7 @@ public class PersistenciaAgenda {
     public static void imprimirAgendamentoDiario(LocalDate data){
         List<Agendamento> tempAgenda = horariosDia(data);
         if(tempAgenda.isEmpty()){
-            System.out.println("Não há horários agendados o dia " + data);
+            System.out.println("Não há horários agendados o dia " + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         } else {
             for(Agendamento compromisso : tempAgenda){
                 System.out.printf("Cliente: %s \t Horário: %s \n",compromisso.getCliente().getNome(), compromisso.getHorario().getLabel());

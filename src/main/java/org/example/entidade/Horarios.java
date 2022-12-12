@@ -15,6 +15,8 @@ public enum Horarios {
     private int opcao;
 
     private String label;
+    public static final int quantidadeHorarios = Horarios.values().length;
+
     private Horarios(int opcao, String label){
         this.opcao = opcao;
         this.label = label;
