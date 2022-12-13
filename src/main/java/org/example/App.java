@@ -1,60 +1,56 @@
 package org.example;
 
-
 import org.example.entidade.Cliente;
 import org.example.entidade.Pets;
+import org.example.persistencia.PersistenciaAgenda;
+import org.example.tela.TelaAgendamento;
 import org.example.tela.TelaCadastroCliente;
 import org.example.tela.TelaCadastroPets;
+import org.example.tela.TelaRecuperarCliente;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class App
 {
     public static void main( String[] args )
     {
-
         System.out.println( "Bem vindo ao PetShop Grupo 1!");
         Scanner scanner = new Scanner(System.in);
+
+        Cliente cliente;
+        Pets pet;
+
         int opcao;
         do{
             System.out.println("Digite: \n (1) Cadastrar Cliente \n (2) Cadastrar Pet \n (3) Agendar Horário \n (4) Imprimir Agenda Diária \n (0) Sair");
             opcao= scanner.nextInt();
-            Cliente cliente = null;
-            Pets pet = null;
             switch (opcao){
                 case 0:
                     System.out.println("Sistema encerrado!");
                     break;
                 case 1:
-                    //TODO criar o cliente, e armazenar no bancoCliente
-                    cliente = TelaCadastroCliente.cadastrarNovoCliente(scanner);
-                    //TODO cadastra pets do cliente (usar um do while para permitir cadastrar vários pets?)
+                    TelaCadastroCliente.cadastrarNovoCliente(scanner);
                     break;
                 case 2:
-                    System.out.println("(1) Cadastrar Pet\n (2) Alterar Cadastro do Pet");
-                    int opcao2=scanner.nextInt();
-                    switch (opcao2) {
-                        case 1:
-                            cliente = TelaCadastroCliente.recuperarCliente(scanner);
-                            boolean proximo;
-                            do {
-                                pet = TelaCadastroPets.cadastrarPet(scanner);
-                                System.out.println("Deseja cadastrar outro Pet? (S) Sim; (N) Não");
-                                proximo = scanner.next().equalsIgnoreCase("s");
-                            } while (proximo);
-                        case 2:
-                            cliente = TelaCadastroCliente.recuperarCliente(scanner);
-
-
-
-                    }
+                    cliente = TelaRecuperarCliente.recuperarCliente(scanner);
+                    boolean proximo;
+                    do {
+                        TelaCadastroPets.cadastrarPet(scanner, cliente);
+                        System.out.println("Deseja cadastrar outro Pet? (S) Sim; (N) Não");
+                        proximo = scanner.next().equalsIgnoreCase("s");
+                    } while (proximo);
                     break;
-                    // TODO atualizar cadastro de cliente (mudar dados cadastrais como contato, ou adicionar novos pets)
                 case 3:
-                    //TODO criar agenda e adicionar item na agenda
+                    cliente = TelaRecuperarCliente.recuperarCliente(scanner);
+                    TelaAgendamento.agendarHorario(scanner, cliente);
                     break;
                 case 4:
-                    //TODO buscar na agenda os horarios marcados para o dia e imprimir na tela
+                    System.out.println("Informe a data desejada (dd/mm/aaaa): ");
+                    LocalDate data = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                    PersistenciaAgenda.imprimirAgendamentoDiario(data);
+                    break;
                 default:
                     System.out.println("Opção inválida!");
             }

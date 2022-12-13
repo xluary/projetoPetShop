@@ -1,4 +1,4 @@
-package org.example.banco;
+package org.example.persistencia;
 
 import org.example.entidade.Cliente;
 
@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 
-public class BancoCliente {
+public class PersistenciaCliente {
     private ArrayList<Cliente> clientes;
 
-    private static BancoCliente instance;
+    private static PersistenciaCliente instance;
 
-    public static BancoCliente getInstance(){
+    public static PersistenciaCliente getInstance(){
         if(Objects.isNull(instance)){
-            instance = new BancoCliente();
+            instance = new PersistenciaCliente();
         }
         return instance;
     }
-    private BancoCliente(){
+    private PersistenciaCliente(){
         clientes = new ArrayList<>();
     }
     public Optional<Cliente> buscarPorNome(String nome) {
