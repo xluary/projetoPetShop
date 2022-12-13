@@ -35,9 +35,11 @@ public class TelaAgendamento {
             }
 
             if(horariosAgendadosDia.size() == Horarios.quantidadeHorarios){
-                System.out.printf("Todos os horários para o dia %s estão preenchidos, selecione outra data", dataAgendamento);
-                valida = 1;
+                System.out.printf("\nTodos os horários para o dia %s estão preenchidos, selecione outra data (dd/mm/aaaa): ", dataAgendamento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                dataAgendamento = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                horariosAgendadosDia = PersistenciaAgenda.horariosDia(dataAgendamento).stream().map(Agendamento::getHorario).collect(Collectors.toList());
             } else {
+
                 Horarios opcao = Horarios.fromOpcao(scanner.nextInt());
 
                 if (horariosAgendadosDia.contains(opcao)) {
@@ -49,9 +51,6 @@ public class TelaAgendamento {
                     valida = 1;
                 }
             }
-
-
-
         } while (valida == 0);
     }
 }
