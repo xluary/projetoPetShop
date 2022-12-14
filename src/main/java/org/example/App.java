@@ -3,10 +3,7 @@ package org.example;
 import org.example.entidade.Cliente;
 import org.example.entidade.Pets;
 import org.example.persistencia.PersistenciaAgenda;
-import org.example.tela.TelaAgendamento;
-import org.example.tela.TelaCadastroCliente;
-import org.example.tela.TelaCadastroPets;
-import org.example.tela.TelaRecuperarCliente;
+import org.example.tela.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -44,7 +41,11 @@ public class App
                     break;
                 case 3:
                     cliente = TelaRecuperarCliente.recuperarCliente(scanner);
-                    TelaAgendamento.agendarHorario(scanner, cliente);
+
+                    System.out.println("Qual o nome do Pet que você quer atendimento?");
+                    cliente.imprimirPets();
+                    pet = TelaRecuperarPet.recuperarPet(scanner, cliente);
+                    TelaAgendamento.agendarHorario(scanner, cliente, pet);
                     break;
                 case 4:
                     System.out.println("Informe a data desejada (dd/mm/aaaa): ");
