@@ -40,7 +40,7 @@ public class PersistenciaAgenda {
             System.out.println("Não há horários agendados o dia " + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         } else {
             for(Agendamento compromisso : tempAgenda){
-                System.out.printf("Cliente: %s \t Pet: %s  \t Horário: %s \n",compromisso.getCliente().getNome(), compromisso.getPet().getNome(), compromisso.getHorario().getLabel());
+                System.out.printf("Cliente: %s \t Pet: %s \t Horário: %s  \t Procedimento: %s \n" ,compromisso.getCliente().getNome(), compromisso.getPet().getNome(), compromisso.getHorario().getLabel(),compromisso.getProcedimento().getTipo());
             }
         }
 

@@ -9,6 +9,7 @@ public class TelaCadastroCliente {
     public static Cliente cadastrarNovoCliente(Scanner scanner){
         System.out.println("Informe o nome do Cliente:");
         final String nome = scanner.next();
+        //TODO PERGUNTAR SOBRENOME
         System.out.println("Informe o CPF: (somente numeros)");
         final long cpf = scanner.nextLong();
         System.out.println("Informe o contato: (ddd)99999-9999");

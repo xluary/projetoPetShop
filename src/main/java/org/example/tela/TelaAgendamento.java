@@ -1,9 +1,6 @@
 package org.example.tela;
 
-import org.example.entidade.Agendamento;
-import org.example.entidade.Cliente;
-import org.example.entidade.Horarios;
-import org.example.entidade.Pets;
+import org.example.entidade.*;
 import org.example.persistencia.PersistenciaAgenda;
 
 import java.time.LocalDate;
@@ -17,6 +14,9 @@ public class TelaAgendamento {
     public static void agendarHorario(Scanner scanner, Cliente cliente, Pets pet) {
         PersistenciaAgenda agenda = PersistenciaAgenda.getInstance();
 
+        System.out.println("Informe o procedimento a ser realizado: ");
+        Procedimentos procedimento = escolherProcedimento(scanner);
+
         System.out.println("Informe a data desejada (dd/mm/aaaa): ");
         LocalDate dataAgendamento = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
@@ -26,7 +26,6 @@ public class TelaAgendamento {
 
         int valida = 0;
         do {
-
             for (Horarios horarios : Horarios.values()) {
                 if (horariosAgendadosDia.contains(horarios)) {
                     System.out.printf("Opção (%d) - Horário indisponível \n", horarios.getOpcao());
@@ -46,12 +45,34 @@ public class TelaAgendamento {
                 if (horariosAgendadosDia.contains(opcao)) {
                     System.out.println("Horário indisponível, por favor selecione outro horário");
                 } else {
-                    Agendamento agendamento = new Agendamento(cliente, dataAgendamento, opcao, pet);
+                    Agendamento agendamento = new Agendamento(cliente, dataAgendamento, opcao, pet, procedimento);
                     agenda.addHorario(agendamento);
                     System.out.println("Agendamento realizado!");
                     valida = 1;
                 }
             }
         } while (valida == 0);
+    }
+
+    public static Procedimentos escolherProcedimento(Scanner scanner){
+        for (TipoProcedimento procedimento : TipoProcedimento.values()) {
+            System.out.printf("Opção (%d) - %s \n", procedimento.getOpcao(), procedimento.getLabel());
+        }
+
+        Procedimentos procedimento = null;
+        int opcaoProcedimento = scanner.nextInt();
+         switch (opcaoProcedimento) {
+             case 1:
+                 procedimento = new ProcedimentoBanho();
+                 break;
+             case 2:
+                 procedimento = new ProcedimentoTosa();
+                 break;
+             case 3:
+                 procedimento = new ProcedimentoHidratacao();
+                 break;
+         }
+
+        return procedimento;
     }
 }

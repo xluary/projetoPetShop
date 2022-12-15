@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.entidade.Cliente;
 import org.example.entidade.Pets;
+import org.example.entidade.Procedimentos;
 import org.example.persistencia.PersistenciaAgenda;
 import org.example.tela.*;
 
@@ -41,7 +42,6 @@ public class App
                     break;
                 case 3:
                     cliente = TelaRecuperarCliente.recuperarCliente(scanner);
-
                     System.out.println("Qual o nome do Pet que você quer atendimento?");
                     cliente.imprimirPets();
                     pet = TelaRecuperarPet.recuperarPet(scanner, cliente);
