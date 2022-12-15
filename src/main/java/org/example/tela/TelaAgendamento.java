@@ -3,6 +3,7 @@ package org.example.tela;
 import org.example.entidade.Agendamento;
 import org.example.entidade.Cliente;
 import org.example.entidade.Horarios;
+import org.example.entidade.Pets;
 import org.example.persistencia.PersistenciaAgenda;
 
 import java.time.LocalDate;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class TelaAgendamento {
 
-    public static void agendarHorario(Scanner scanner, Cliente cliente) {
+    public static void agendarHorario(Scanner scanner, Cliente cliente, Pets pet) {
         PersistenciaAgenda agenda = PersistenciaAgenda.getInstance();
 
         System.out.println("Informe a data desejada (dd/mm/aaaa): ");
@@ -45,7 +46,7 @@ public class TelaAgendamento {
                 if (horariosAgendadosDia.contains(opcao)) {
                     System.out.println("Horário indisponível, por favor selecione outro horário");
                 } else {
-                    Agendamento agendamento = new Agendamento(cliente, dataAgendamento, opcao);
+                    Agendamento agendamento = new Agendamento(cliente, dataAgendamento, opcao, pet);
                     agenda.addHorario(agendamento);
                     System.out.println("Agendamento realizado!");
                     valida = 1;

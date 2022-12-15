@@ -1,15 +1,18 @@
 package org.example.entidade;
 
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Optional;
+import org.example.entidade.Pets;
 
 public class Cliente {
     private String nome;
-    private int cpf;
+    private long cpf;
     private String contato;
 
     private static ArrayList<Pets> pets;
 
-    public Cliente(String nome, int cpf, String contato){
+    public Cliente(String nome, long cpf, String contato){
         this.nome=nome;
         this.cpf=cpf;
         this.contato=contato;
@@ -25,7 +28,7 @@ public class Cliente {
         int quantidadePets = pets.size();
         System.out.printf("O cliente possui %d pet(s) cadastrados: \n", quantidadePets);
         for(int i=0; i<quantidadePets; i++){
-            System.out.printf("Nome: %s \t Tipo: %s \n", pets.get(i).getNome(), pets.get(i).getTipo());
+            System.out.printf("(%s)Nome: %s \t Tipo: %s \n", i, pets.get(i).getNome(), pets.get(i).getTipo());
         }
     }
 
@@ -40,6 +43,10 @@ public class Cliente {
 
     public String getNome() {
         return nome;
+    }
+
+    public static ArrayList<Pets> getPets() {
+        return pets;
     }
 
 }
