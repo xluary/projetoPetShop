@@ -48,4 +48,5 @@ public class Cliente {
     public static ArrayList<Pets> getPets() {
         return pets;
     }
+
 }
