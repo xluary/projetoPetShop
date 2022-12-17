@@ -2,7 +2,7 @@ package org.example.entidade;
 
 import java.math.BigDecimal;
 
-public class ProcedimentoHidratacao extends Procedimentos {
+public class ProcedimentoHidratacao extends Procedimento {
 
     public ProcedimentoHidratacao() {
 
