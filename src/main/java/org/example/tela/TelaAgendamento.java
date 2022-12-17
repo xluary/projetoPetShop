@@ -1,6 +1,7 @@
 package org.example.tela;
 
 import org.example.entidade.*;
+import org.example.fabrica.FabricaProcedimento;
 import org.example.persistencia.PersistenciaAgenda;
 
 import java.time.LocalDate;
@@ -9,13 +10,19 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class TelaAgendamento {
+public class TelaAgendamento implements Tela{
 
-    public static void agendarHorario(Scanner scanner, Cliente cliente, Pets pet) {
+    public void executar(Scanner scanner) {
+
+        Cliente cliente = TelaRecuperarCliente.recuperarCliente(scanner);
+        Pets pet = TelaRecuperarPet.recuperarPet(scanner, cliente);
         PersistenciaAgenda agenda = PersistenciaAgenda.getInstance();
 
         System.out.println("Informe o procedimento a ser realizado: ");
-        Procedimentos procedimento = escolherProcedimento(scanner);
+        for (TipoProcedimento procedimento : TipoProcedimento.values()) {
+            System.out.printf("Opção (%d) - %s \n", procedimento.getOpcao(), procedimento.getLabel());
+        }
+        Procedimento procedimento = FabricaProcedimento.getInstance(TipoProcedimento.fromOpcao(scanner.nextInt()));
 
         System.out.println("Informe a data desejada (dd/mm/aaaa): ");
         LocalDate dataAgendamento = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
@@ -54,25 +61,4 @@ public class TelaAgendamento {
         } while (valida == 0);
     }
 
-    public static Procedimentos escolherProcedimento(Scanner scanner){
-        for (TipoProcedimento procedimento : TipoProcedimento.values()) {
-            System.out.printf("Opção (%d) - %s \n", procedimento.getOpcao(), procedimento.getLabel());
-        }
-
-        Procedimentos procedimento = null;
-        int opcaoProcedimento = scanner.nextInt();
-         switch (opcaoProcedimento) {
-             case 1:
-                 procedimento = new ProcedimentoBanho();
-                 break;
-             case 2:
-                 procedimento = new ProcedimentoTosa();
-                 break;
-             case 3:
-                 procedimento = new ProcedimentoHidratacao();
-                 break;
-         }
-
-        return procedimento;
-    }
 }

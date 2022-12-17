@@ -2,26 +2,28 @@ package org.example.tela;
 
 import org.example.entidade.Cliente;
 import org.example.entidade.Pets;
+import org.example.entidade.TipoPet;
 
 import java.util.Scanner;
 
-public class TelaCadastroPets {
+public class TelaCadastroPets implements Tela{
 
-    public static void cadastrarPet(Scanner scanner, Cliente cliente){
-        System.out.println("Informe o nome do Pet: ");
-        String nome = scanner.next();
+    public void executar(Scanner scanner){
 
-        System.out.println("(1) Cachorro; (2) Gato");
-        int tipoPet = scanner.nextInt();
+        TelaRecuperarCliente.recuperarCliente(scanner);
+        boolean proximo;
+        do {
+            System.out.println("Informe o nome do Pet: ");
+            String nome = scanner.next();
 
-        String tipo="";
-        if(tipoPet==1){
-            tipo = "Cachorro";
-        }else if(tipoPet==2){
-            tipo = "Gato";
-        }
+            for (TipoPet tipoPet : TipoPet.values()) {
+                System.out.printf("Opção (%d) - %s \n", tipoPet.getOpcao(), tipoPet.getLabel());
+            }
 
-        Pets pet = new Pets(nome,tipo);
-        Cliente.adicionarPet(pet);
+            Pets pet = new Pets(nome,TipoPet.fromOpcao(scanner.nextInt()).getLabel());
+            Cliente.adicionarPet(pet);
+            System.out.println("Deseja cadastrar outro Pet? (S) Sim; (N) Não");
+            proximo = scanner.next().equalsIgnoreCase("s");
+        } while (proximo);
     }
 }
