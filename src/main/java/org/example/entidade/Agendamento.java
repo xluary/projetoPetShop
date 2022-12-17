@@ -1,17 +1,15 @@
 package org.example.entidade;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Agendamento {
     private Cliente cliente;
     private Pets pet;
     private LocalDate data;
     private Horarios horario;
-    private Procedimentos procedimento;
+    private Procedimento procedimento;
 
-    public Agendamento(Cliente cliente, LocalDate data, Horarios horario, Pets pet, Procedimentos procedimento) {
+    public Agendamento(Cliente cliente, LocalDate data, Horarios horario, Pets pet, Procedimento procedimento) {
         this.cliente = cliente;
         this.data = data;
         this.horario = horario;
@@ -33,7 +31,7 @@ public class Agendamento {
 
     public Pets getPet() { return pet; }
 
-    public Procedimentos getProcedimento() {
+    public Procedimento getProcedimento() {
         return procedimento;
     }
 }
