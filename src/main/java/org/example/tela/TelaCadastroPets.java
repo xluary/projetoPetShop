@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class TelaCadastroPets {
 
     public static void cadastrarPet(Scanner scanner, Cliente cliente){
-        System.out.println("Informe o nome do Pet");
+        System.out.println("Informe o nome do Pet: ");
         String nome = scanner.next();
 
         System.out.println("(1) Cachorro; (2) Gato");

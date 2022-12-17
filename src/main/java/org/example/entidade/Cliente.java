@@ -28,7 +28,7 @@ public class Cliente {
         int quantidadePets = pets.size();
         System.out.printf("O cliente possui %d pet(s) cadastrados: \n", quantidadePets);
         for(int i=0; i<quantidadePets; i++){
-            System.out.printf("(%s)Nome: %s \t Tipo: %s \n", i, pets.get(i).getNome(), pets.get(i).getTipo());
+            System.out.printf("Nome: %s \t Tipo: %s \n", pets.get(i).getNome(), pets.get(i).getTipo());
         }
     }
 
