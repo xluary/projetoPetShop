@@ -2,7 +2,7 @@ package org.example.entidade;
 
 import java.time.LocalDate;
 
-public class Agendamento {
+public class Agendamento implements Comparable<Agendamento>{
     private Cliente cliente;
     private Pets pet;
     private LocalDate data;
@@ -34,5 +34,10 @@ public class Agendamento {
 
     public Procedimento getProcedimento() {
         return procedimento;
+    }
+
+    @Override
+    public int compareTo(Agendamento outroAgendamento) {
+        return this.horario.compareTo(outroAgendamento.getHorario());
     }
 }

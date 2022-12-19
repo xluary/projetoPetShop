@@ -13,7 +13,7 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Bem vindo ao PetShop Grupo 1!");
-       // Scanner scanner = new Scanner(entryHelpFile1().toFile());
+        //Scanner scanner = new Scanner(entryHelpFile1().toFile()); //novo script de teste
         Scanner scanner = new Scanner(System.in);
 
         int opcao;
