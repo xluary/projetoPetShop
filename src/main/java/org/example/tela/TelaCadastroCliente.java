@@ -19,6 +19,4 @@ public class TelaCadastroCliente implements Tela{
         bancoCliente.addCliente(cliente);
         System.out.println("Cliente cadastrado!");
     }
-
-
 }

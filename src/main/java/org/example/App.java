@@ -13,8 +13,8 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Bem vindo ao PetShop Grupo 1!");
-        Scanner scanner = new Scanner(entryHelpFile().toFile());
-       // Scanner scanner = new Scanner(System.in);
+       // Scanner scanner = new Scanner(entryHelpFile1().toFile());
+        Scanner scanner = new Scanner(System.in);
 
         int opcao;
         do{
@@ -34,6 +34,10 @@ public class App
 
     private static Path entryHelpFile() {
         return Paths.get("src", "main", "resources", "Input.entry")
+                .toAbsolutePath();
+    }
+    private static Path entryHelpFile1() {
+        return Paths.get("src", "main", "resources", "Input.entry.2")
                 .toAbsolutePath();
     }
 }
