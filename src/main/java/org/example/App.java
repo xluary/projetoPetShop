@@ -3,6 +3,8 @@ package org.example;
 import org.example.entidade.*;
 import org.example.fabrica.TelaFabrica;
 import org.example.tela.*;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,11 +12,10 @@ import java.util.Scanner;
 
 public class App
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Bem vindo ao PetShop Grupo 1!");
-        Scanner scanner = new Scanner(entryHelpFile().toFile());
-       // Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        //System.out.println( "Bem vindo ao PetShop Grupo 1!");
+        //Scanner scanner = new Scanner(entryHelpFile().toFile());
+        Scanner scanner = new Scanner(System.in);
 
         int opcao;
         do{

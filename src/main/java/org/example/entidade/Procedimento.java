@@ -12,4 +12,7 @@ public abstract class Procedimento {
         return tipo;
     }
 
+    public BigDecimal getValor() {
+        return valor;
+    }
 }

@@ -16,7 +16,6 @@ public class TelaAgendamento implements Tela{
 
         Cliente cliente = TelaRecuperarCliente.recuperarCliente(scanner);
         cliente.imprimirPets();
-        System.out.println("Digite o nome do pet: ");
         Pets pet = TelaRecuperarPet.recuperarPet(scanner, cliente);
 
 
@@ -64,5 +63,4 @@ public class TelaAgendamento implements Tela{
             }
         } while (valida == 0);
     }
-
 }

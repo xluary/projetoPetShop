@@ -8,6 +8,7 @@ public class Agendamento {
     private LocalDate data;
     private Horarios horario;
     private Procedimento procedimento;
+    private boolean contaFechada;
 
 
     public Agendamento(Cliente cliente, LocalDate data, Horarios horario, Pets pet, Procedimento procedimento) {
@@ -16,6 +17,7 @@ public class Agendamento {
         this.horario = horario;
         this.pet = pet;
         this.procedimento = procedimento;
+        this.contaFechada = false;
     }
 
     public LocalDate getData() {
@@ -35,4 +37,16 @@ public class Agendamento {
     public Procedimento getProcedimento() {
         return procedimento;
     }
+    public void setContaFechada(){
+        if(contaFechada){
+            contaFechada=false;
+        }else{
+            contaFechada = true;
+        }
+    }
+
+    public boolean getContaFechada() {
+        return contaFechada;
+    }
+
 }
