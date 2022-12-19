@@ -5,10 +5,7 @@ import org.example.entidade.Cliente;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class PersistenciaAgenda {
@@ -39,6 +36,7 @@ public class PersistenciaAgenda {
         if(tempAgenda.isEmpty()){
             System.out.println("Não há horários agendados o dia " + data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         } else {
+            Collections.sort(tempAgenda);
             for(Agendamento compromisso : tempAgenda){
                 System.out.printf("Cliente: %s \t Pet: %s \t Horário: %s  \t Procedimento: %s \n" ,compromisso.getCliente().getNome(), compromisso.getPet().getNome(), compromisso.getHorario().getLabel(),compromisso.getProcedimento().getTipo());
             }

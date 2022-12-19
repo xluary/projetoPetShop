@@ -10,7 +10,7 @@ public class Cliente {
     private long cpf;
     private String contato;
 
-    private static ArrayList<Pets> pets;
+    private ArrayList<Pets> pets;
 
     public Cliente(String nome, long cpf, String contato){
         this.nome=nome;
@@ -20,7 +20,7 @@ public class Cliente {
     }
 
     // Métodos personalizados
-    public static void adicionarPet(Pets pet){
+    public void adicionarPet(Pets pet){
         pets.add(pet);
     }
 
@@ -45,7 +45,7 @@ public class Cliente {
         return nome;
     }
 
-    public static ArrayList<Pets> getPets() {
+    public ArrayList<Pets> getPets() {
         return pets;
     }
 
