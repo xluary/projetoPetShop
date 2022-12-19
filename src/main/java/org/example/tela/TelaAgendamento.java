@@ -15,7 +15,11 @@ public class TelaAgendamento implements Tela{
     public void executar(Scanner scanner) {
 
         Cliente cliente = TelaRecuperarCliente.recuperarCliente(scanner);
+        cliente.imprimirPets();
+        System.out.println("Digite o nome do pet: ");
         Pets pet = TelaRecuperarPet.recuperarPet(scanner, cliente);
+
+
         PersistenciaAgenda agenda = PersistenciaAgenda.getInstance();
 
         System.out.println("Informe o procedimento a ser realizado: ");

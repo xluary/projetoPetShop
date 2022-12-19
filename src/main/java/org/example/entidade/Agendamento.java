@@ -9,6 +9,7 @@ public class Agendamento {
     private Horarios horario;
     private Procedimento procedimento;
 
+
     public Agendamento(Cliente cliente, LocalDate data, Horarios horario, Pets pet, Procedimento procedimento) {
         this.cliente = cliente;
         this.data = data;
