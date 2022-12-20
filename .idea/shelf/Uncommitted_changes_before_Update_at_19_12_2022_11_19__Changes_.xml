@@ -1,0 +1,39 @@
+<changelist name="Uncommitted_changes_before_Update_at_19_12_2022_11_19_[Changes]" date="1671459600131" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_11_19_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 19/12/2022 11:19 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/persistencia/PersistenciaCliente.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/persistencia/PersistenciaCliente.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_11_19_[Changes]/PersistenciaCliente.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/entidade/MenuInicial.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/entidade/MenuInicial.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_11_19_[Changes]/MenuInicial.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/tela/TelaRecuperarPet.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/tela/TelaRecuperarPet.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_11_19_[Changes]/TelaRecuperarPet.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/entidade/TipoPet.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/entidade/TipoPet.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_11_19_[Changes]/TipoPet.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/entidade/Procedimento.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/entidade/Procedimento.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_11_19_[Changes]/Procedimento.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/App.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/App.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_11_19_[Changes]/App.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/tela/TelaCadastroPets.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/tela/TelaCadastroPets.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_11_19_[Changes]/TelaCadastroPets.class" />
+  </binary>
+</changelist>

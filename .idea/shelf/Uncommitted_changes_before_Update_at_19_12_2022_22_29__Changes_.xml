@@ -1,0 +1,34 @@
+<changelist name="Uncommitted_changes_before_Update_at_19_12_2022_22_29_[Changes]" date="1671499780650" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_22_29_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 19/12/2022 22:29 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/persistencia/PersistenciaAgenda.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/persistencia/PersistenciaAgenda.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_22_29_[Changes]/PersistenciaAgenda.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/App.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/App.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_22_29_[Changes]/App.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/persistencia/PersistenciaCliente.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/persistencia/PersistenciaCliente.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_22_29_[Changes]/PersistenciaCliente.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/tela/TelaCadastroPets.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/tela/TelaCadastroPets.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_22_29_[Changes]/TelaCadastroPets.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/entidade/Cliente.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/entidade/Cliente.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_22_29_[Changes]/Cliente.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/org/example/entidade/Agendamento.class" />
+    <option name="AFTER_PATH" value="target/classes/org/example/entidade/Agendamento.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2022_22_29_[Changes]/Agendamento.class" />
+  </binary>
+</changelist>
