@@ -25,7 +25,13 @@ public class TelaAgendamento implements Tela{
         }
         Procedimento procedimento = FabricaProcedimento.getInstance(TipoProcedimento.fromOpcao(scanner.nextInt()));
         System.out.println("Informe a data desejada (dd/mm/aaaa): ");
-        LocalDate dataAgendamento = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDate dataAgendamento = null;
+        try {
+            dataAgendamento = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        } catch (RuntimeException e) {
+            System.err.println("Data inválida");
+            System.exit(0);
+        }
         List<Horarios> horariosAgendadosDia = PersistenciaAgenda.horariosDia(dataAgendamento).stream().map(Agendamento::getHorario).collect(Collectors.toList());
         System.out.println("Informe o horario desejado: ");
 
@@ -40,14 +46,18 @@ public class TelaAgendamento implements Tela{
                 }
             }
 
-            if(horariosAgendadosDia.size() == Horarios.quantidadeHorarios){
+            if (horariosAgendadosDia.size() == Horarios.quantidadeHorarios) {
                 System.out.printf("\nTodos os horários para o dia %s estão preenchidos, selecione outra data (dd/mm/aaaa): ", dataAgendamento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                 dataAgendamento = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                 horariosAgendadosDia = PersistenciaAgenda.horariosDia(dataAgendamento).stream().map(Agendamento::getHorario).collect(Collectors.toList());
             } else {
-
-                Horarios opcao = Horarios.fromOpcao(scanner.nextInt());
-
+                Horarios opcao = null;
+                try {
+                    opcao = Horarios.fromOpcao(scanner.nextInt());
+                } catch (RuntimeException e) {
+                    System.err.println("Entrada inválida");
+                    System.exit(0);
+                }
                 if (horariosAgendadosDia.contains(opcao)) {
                     System.out.println("Horário indisponível, por favor selecione outro horário");
                 } else {
