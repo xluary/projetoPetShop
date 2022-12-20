@@ -9,7 +9,6 @@ public class Cliente {
     private String nome;
     private long cpf;
     private String contato;
-
     private ArrayList<Pets> pets;
 
     public Cliente(String nome, long cpf, String contato){

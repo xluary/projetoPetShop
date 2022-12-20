@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class App
 {
     public static void main( String[] args ) throws Exception {
-        //System.out.println( "Bem vindo ao PetShop Grupo 1!");
+        System.out.println( "Bem vindo ao PetShop Grupo 1!");
         Scanner scanner = new Scanner(entryHelpFile1().toFile());
-        //Scanner scanner = new Scanner(System.in);
+       // Scanner scanner = new Scanner(System.in);
 
         int opcao =0;
         do{
