@@ -12,25 +12,20 @@ import java.util.stream.Collectors;
 
 public class TelaAgendamento implements Tela{
 
-    public void executar(Scanner scanner) {
+    public void executar(Scanner scanner) throws Exception {
 
         Cliente cliente = TelaRecuperarCliente.recuperarCliente(scanner);
         cliente.imprimirPets();
         System.out.println("Digite o nome do pet:");
         Pets pet = TelaRecuperarPet.recuperarPet(scanner, cliente);
-
-
         PersistenciaAgenda agenda = PersistenciaAgenda.getInstance();
-
         System.out.println("Informe o procedimento a ser realizado: ");
         for (TipoProcedimento procedimento : TipoProcedimento.values()) {
             System.out.printf("Opção (%d) - %s \n", procedimento.getOpcao(), procedimento.getLabel());
         }
         Procedimento procedimento = FabricaProcedimento.getInstance(TipoProcedimento.fromOpcao(scanner.nextInt()));
-
         System.out.println("Informe a data desejada (dd/mm/aaaa): ");
         LocalDate dataAgendamento = LocalDate.parse(scanner.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-
         List<Horarios> horariosAgendadosDia = PersistenciaAgenda.horariosDia(dataAgendamento).stream().map(Agendamento::getHorario).collect(Collectors.toList());
         System.out.println("Informe o horario desejado: ");
 

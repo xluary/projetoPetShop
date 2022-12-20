@@ -45,7 +45,11 @@ public class PersistenciaAgenda {
     }
 
     public static List<Agendamento> horariosDia(LocalDate data){
-        return agenda.stream().filter(agenda -> agenda.getData().equals(data)).collect(Collectors.toList());
+        List<Agendamento> entrada = agenda.stream().filter(agenda -> agenda.getData().equals(data)).collect(Collectors.toList());
+        if(entrada == null){
+            throw new RuntimeException("Dia não possui agendamentos");
+        }
+        return entrada;
     }
 
 }

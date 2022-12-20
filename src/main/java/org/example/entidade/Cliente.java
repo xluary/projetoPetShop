@@ -30,8 +30,10 @@ public class Cliente {
         for(int i=0; i<quantidadePets; i++){
             System.out.printf("Nome: %s \t Tipo: %s \n", pets.get(i).getNome(), pets.get(i).getTipo());
         }
+        if(quantidadePets<0){
+            throw new RuntimeException("o Cliente não possui nenhum Pet Cadastrado");
+        }
     }
-
     @Override
     public String toString() {
         return "Cliente{" +
