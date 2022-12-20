@@ -10,25 +10,24 @@ import java.util.Scanner;
 
 public class App
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Bem vindo ao PetShop Grupo 1!");
-        //Scanner scanner = new Scanner(entryHelpFile1().toFile()); //novo script de teste
-        Scanner scanner = new Scanner(System.in);
+    public static void main( String[] args ) throws Exception {
+        //System.out.println( "Bem vindo ao PetShop Grupo 1!");
+        Scanner scanner = new Scanner(entryHelpFile1().toFile());
+        //Scanner scanner = new Scanner(System.in);
 
-        int opcao;
+        int opcao =0;
         do{
             for (MenuInicial opcaoMenu : MenuInicial.values()) {
                 System.out.printf("Opção (%d) - %s \n", opcaoMenu.getOpcao(), opcaoMenu.getLabel());
             }
             opcao= scanner.nextInt();
-            try{
-                Tela tela = TelaFabrica.getInstance(MenuInicial.fromOpcao(opcao));
-                tela.executar(scanner);
-            } catch (Exception e){
-                System.err.println("Deu ruim!");
-                //TODO tratamento dos erros
-            }
+            Tela tela = TelaFabrica.getInstance(MenuInicial.fromOpcao(opcao));
+            tela.executar(scanner);
+            /*try{
+
+            } catch (RuntimeException e){
+                System.err.println("Tente Novamente");
+            }*/
         }while (opcao !=0);
     }
 

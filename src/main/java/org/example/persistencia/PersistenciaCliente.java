@@ -47,7 +47,6 @@ public class PersistenciaCliente {
             if(cliente.getPets().get(i).getNome().equals(nomePet)){
                 return Optional.of(cliente.getPets().get(i));
             }
-            i++;
         }
         return Optional.empty();
     }
