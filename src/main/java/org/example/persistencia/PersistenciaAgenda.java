@@ -70,10 +70,15 @@ public class PersistenciaAgenda {
 
         if(!contaTotal.equals(0)){
             System.out.println("O cliente realizou o pagamento? (1) sim (2) não");
-            if(scanner.nextInt() == 1){
-                for(Agendamento conta : tempAgenda){
-                    conta.setStatusPagamento(true);
+            try{
+                if(scanner.nextInt() == 1){
+                    for(Agendamento conta : tempAgenda){
+                        conta.setStatusPagamento(true);
+            }
+
                 }
+            } catch (Exception e) {
+                throw new RuntimeException("");
             }
         }
     }

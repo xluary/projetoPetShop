@@ -7,8 +7,13 @@ import java.util.Scanner;
 
 public class TelaContaCliente implements Tela{
     public void executar(Scanner scanner) throws Exception {
-        Cliente cliente = TelaRecuperarCliente.recuperarCliente(scanner);
-        PersistenciaAgenda.imprimirAgendamentoCliente(scanner, cliente);
+        try{
+            Cliente cliente = TelaRecuperarCliente.recuperarCliente(scanner);
+            PersistenciaAgenda.imprimirAgendamentoCliente(scanner, cliente);
+        } catch (Exception e) {
+            throw new RuntimeException("Cliente não possui agendamento no dia");
+        }
+
     }
 
 }
