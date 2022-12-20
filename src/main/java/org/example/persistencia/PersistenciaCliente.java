@@ -26,7 +26,7 @@ public class PersistenciaCliente {
             throw new RuntimeException("Não achamos esse cliente na nossa lista");
         }
         for (Cliente cliente : clientes) {
-            if(cliente.getNome().equals(nome)){
+            if(cliente.getNome().equalsIgnoreCase(nome)){
                 return Optional.of(cliente);
             }
         }
@@ -44,7 +44,7 @@ public class PersistenciaCliente {
             throw new RuntimeException("Não achamos esse Pet na nossa lista");
         }
         for (int i=0; i<cliente.getPets().size(); i++ ) {
-            if(cliente.getPets().get(i).getNome().equals(nomePet)){
+            if(cliente.getPets().get(i).getNome().equalsIgnoreCase(nomePet)){
                 return Optional.of(cliente.getPets().get(i));
             }
         }
